@@ -1,0 +1,25 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/homepage";
+import FlappyJade from "./pages/splashscreen";
+import Profile from "./pages/profile"
+import Leaderboard from "./pages/ranking";
+import Earn from "./pages/earn";
+import Refer from "./pages/refer"
+
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<FlappyJade />} />
+        <Route path="/homepage" element={<HomePage />} />
+        <Route path="/profile" element={<Profile />} />
+        <Route path="/leaderboard" element={<Leaderboard />} />
+        <Route path="/earn" element={<Earn />} />
+        <Route path="/refer" element={<Refer />} />
+      </Routes>
+    </Router>
+  );
+};
+
+export default App;
