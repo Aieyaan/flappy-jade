@@ -1,7 +1,6 @@
-import React, { useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import React from "react";
 import Footer from "../component/footer";
+import { useNavigate } from "react-router-dom";
 
 const leaderboardData = [
   { rank: 1, name: "Sharique", score: 25644, time: "4:40", income: 600 },
@@ -16,35 +15,40 @@ const leaderboardData = [
 ];
 
 const Leaderboard = () => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
+
+
+  const navigate = useNavigate();
+    const handleDaily = () => {
+      navigate("/leaderboard");
+  };
+  const handleWeekly = () => {
+    navigate("/week");
+};
+const handleQuest = () => {
+  navigate("/alltime");
+};
+
 
   return (
     <div className="bg-[#0E1B17] text-white min-h-screen flex justify-center items-center">
       <div className="w-full max-w-md bg-[#0E1B17] rounded-lg shadow-lg p-6">
-        {/* Calendar Component */}
-        <div className="text-center bg-[#0A3131] text-xl font-bold mb-4 rounded-lg shadow-lg p-6">
-          <div className="flex flex-col items-center">
-            <span className="mb-2">Reset on</span>
-            <DatePicker
-              selected={selectedDate}
-              onChange={(date) => setSelectedDate(date)}
-              dateFormat="dd MMM yyyy"
-              className="text-center bg-[#0A3131] text-white py-2 px-4 rounded w-full cursor-pointer"
-              popperPlacement="bottom"
-            />
-          </div>
-        </div>
+      
 
-        {/* Navigation Buttons */}
         <div className="bg-[#0A3131] p-4 mb-10">
         <div className="flex justify-around text-sm mb-4">
-          <button className="px-4 py-2 bg-[#0A3131] border-2 border-[#86EFBE] rounded-lg">
+          <button 
+          onClick={handleDaily}
+          className="px-4 py-2 bg-[#0A3131] border-2 border-[#86EFBE] rounded-lg">
             Daily
           </button>
-          <button className="px-4 py-2 bg-[#0A3131] border-2 border-[#86EFBE] rounded-lg">
+          <button 
+          onClick={handleWeekly}
+          className="px-4 py-2 bg-[#0A3131] border-2 border-[#86EFBE] rounded-lg">
             Weekly
           </button>
-          <button className="px-4 py-2 bg-[#0A3131] border-2 border-[#86EFBE] rounded-lg">
+          <button 
+          onClick={handleQuest}
+          className="px-4 py-2 bg-[#0A3131] border-2 border-[#86EFBE] rounded-lg">
             All Time
           </button>
         </div>
@@ -75,7 +79,27 @@ const Leaderboard = () => {
         }`}
       >
         <td className="p-2 flex items-center gap-2">
-          <span className="font-bold">{player.rank}</span>
+          {player.rank === 1 ? (
+            <img
+              src="/first.svg" 
+              alt="Gold Trophy"
+              className="w-7 h-7"
+            />
+          ) : player.rank === 2 ? (
+            <img
+              src="/second.svg"
+              alt="Silver Trophy"
+              className="w-6 h-6"
+            />
+          ) : player.rank === 3 ? (
+            <img
+              src="/third.svg"
+              alt="Bronze Trophy"
+              className="w-7 h-7"
+            />
+          ) : (
+            <span className="font-bold mr-5">{player.rank}</span>
+          )}
           <span>{player.name}</span>
         </td>
         <td className="p-2">{player.score}</td>
@@ -85,6 +109,7 @@ const Leaderboard = () => {
     ))}
   </tbody>
 </table>
+
 <Footer />
         </div>
       </div>

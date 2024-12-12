@@ -6,7 +6,7 @@ import Profile from "./pages/profile"
 import Leaderboard from "./pages/ranking";
 import Earn from "./pages/earn";
 import Refer from "./pages/refer"
-
+import Store from "./pages/store";
 const App = () => {
   return (
     <Router>
@@ -17,6 +17,7 @@ const App = () => {
         <Route path="/leaderboard" element={<Leaderboard />} />
         <Route path="/earn" element={<Earn />} />
         <Route path="/refer" element={<Refer />} />
+        <Route path="/store" element={<Store />} />
       </Routes>
     </Router>
   );
