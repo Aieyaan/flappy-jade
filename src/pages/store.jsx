@@ -6,23 +6,23 @@ const Store = () => {
 
 return (
     <div className="min-h-screen bg-black text-white flex flex-col items-center p-4">
+      <div >
       {/* Gem Button */}
-    <div className="flex flex-row items-center mb-4">
-    <button className="flex bg-[#00FFBF] w-[145px] h-[50px] items-center justify-between px-4 rounded">
+    <div className="flex flex-row bg-[#00FFBF] space-x-10 items-center mb-4">
     <img src="/pokemon.svg" alt="Gem" className="w-12 h-12" />
-        
-      <span className="rounded bg-[#003320]">+</span>  
-        </button>
+    <button className="flex bg-[#003320] items-center  px-4 rounded-full">
+    +  
+    </button>
 </div>
 
       {/* Star Button */}
-      <div className="flex items-center mb-4">
-        <button className="flex bg-[#00FFBF] w-[145px] h-[50px] items-center justify-between px-4 rounded">
-          <img src="/star.svg" alt="Star" className="w-6 h-6" />
-          <span className="rounded bg-[#003320]">+</span>  
+      <div className="flex flex-row bg-[#00FFBF] space-x-10 items-center mb-4">
+      <img src="/star.svg" alt="Star" className="w-6 h-6" />
+      <button className="flex bg-[#003320] items-center  px-4 rounded-full">
+      +  
         </button>
       </div>
-
+      </div>
       {/* Image */}
       <div className="mt-6">
         <img src="/dragon2.svg" alt="Dragon" className="w-[136px] h-[136px]" />

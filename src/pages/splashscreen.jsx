@@ -10,7 +10,7 @@ const FlappyJade = () => {
 
   return (
     <div
-      className="relative h-screen w-full bg-gradient-to-b from-blue-300 to-blue-500 flex items-center justify-center overflow-hidden"
+      className="relative h-screen w-full flex items-center justify-center overflow-hidden"
       onClick={handleNavigation} 
     >
       <img
